@@ -1,0 +1,379 @@
+<!-- @format -->
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>Завдання 3. txt2html - Лабораторна робота №2</title>
+	</head>
+	<body>
+		<header>
+			<h1>Що таке <abbr title="Cascading Style Sheets">CSS</abbr>?</h1>
+
+			<h2>Зміст</h2>
+			<nav>
+				<ol>
+					<li><a href="#vstup">Вступ</a></li>
+					<li>
+						<a href="#styli-brauzera-za-zamovchuvannyam">
+							1. Стилі браузера за замовчуванням
+						</a>
+					</li>
+					<li>
+						<a href="#dlya-choho-potriben-css">
+							2. Для чого потрібен CSS?
+						</a>
+					</li>
+					<li>
+						<a href="#osnovy-syntaksysu-css">
+							3. Основи синтаксису CSS
+						</a>
+					</li>
+					<li>
+						<a href="#pryklady-styliv-u-css">
+							4. Приклади стилів у CSS
+						</a>
+					</li>
+					<li>
+						<a href="#yak-css-zastosovuyetsya-do-html">
+							5. Як CSS застосовується до HTML?
+						</a>
+					</li>
+					<li>
+						<a href="#pidsumok">Підсумок</a>
+					</li>
+				</ol>
+			</nav>
+		</header>
+		<main>
+			<article>
+				<section id="vstup">
+					<h2>Вступ</h2>
+					<p>
+						СSS (Cascading Style Sheets) дозволяє створювати гарні
+						веб-сторінки, але як він працює "під капотом"? У цій
+						статті пояснюється, що таке
+						<abbr title="Cascading Style Sheets">CSS</abbr>, як
+						виглядає його базовий синтаксис і як браузер застосовує
+						<abbr title="Cascading Style Sheets">CSS</abbr> до
+						<abbr title="HyperText Markup Language">HTML</abbr>
+						для стилізації.
+					</p>
+					<h3>Попередні вимоги:</h3>
+					<ul>
+						<li>Базові знання роботи з файлами</li>
+						<li>
+							Знання
+							<abbr title="HyperText Markup Language">HTML</abbr>.
+						</li>
+					</ul>
+
+					<h3>Чого ви навчитеся:</h3>
+					<ul>
+						<li>
+							Зрозумієте призначення
+							<abbr title="Cascading Style Sheets">CSS</abbr>.
+						</li>
+						<li>
+							Дізнаєтесь, що
+							<abbr title="HyperText Markup Language">HTML</abbr>
+							не відповідає за стилізацію.
+						</li>
+						<li>
+							Розберетеся в концепції стилів браузера за
+							замовчуванням.
+						</li>
+						<li>
+							Ознайомитеся з основами
+							<abbr title="Cascading Style Sheets">CSS</abbr
+							>-синтаксису.
+						</li>
+						<li>
+							Дізнаєтесь, як
+							<abbr title="Cascading Style Sheets">CSS</abbr>
+							застосовується до
+							<abbr title="HyperText Markup Language">HTML</abbr>.
+						</li>
+					</ul>
+				</section>
+				<hr />
+				<section id="styli-brauzera-za-zamovchuvannyam">
+					<h2>Стилі браузера за замовчуванням</h2>
+					<p>
+						У попередньому модулі ми розглянули, що таке
+						<abbr title="HyperText Markup Language">HTML</abbr> і як
+						він використовується для розмітки документів. Ці
+						документи будуть читатися у веб-браузері. Заголовки
+						виглядають більшими, ніж звичайний текст, абзаци
+						переходять на новий рядок і мають пробіл між ними,
+						посилання підкреслені та мають інший колір для
+						відмінності від основного тексту.
+					</p>
+
+					<img
+						src="html-example.png"
+						alt="Приклад стилів браузера за замовчуванням"
+					/>
+
+					<p>
+						Те, що ви бачите, — це стилі браузера за замовчуванням.
+						Вони являють собою базову стилізацію, яку браузер
+						застосовує до
+						<abbr title="HyperText Markup Language">HTML</abbr>, щоб
+						сторінка залишалася читабельною навіть без явного
+						вказання стилів автором. Ці стилі визначені у
+						стандартних
+						<abbr title="Cascading Style Sheets">CSS</abbr>-таблицях
+						стилів браузера і не мають відношення до самого
+						<abbr title="HyperText Markup Language">HTML</abbr>.
+					</p>
+				</section>
+				<hr />
+				<section id="dlya-choho-potriben-css">
+					<h2>
+						Для чого потрібен
+						<abbr title="Cascading Style Sheets">CSS</abbr>?
+					</h2>
+					<p>
+						Використовуючи
+						<abbr title="Cascading Style Sheets">CSS</abbr>, ви
+						можете повністю контролювати зовнішній вигляд
+						<abbr title="HyperText Markup Language">HTML</abbr
+						>-елементів у браузері, представляючи документи
+						користувачам у будь-якому дизайні та макеті.
+					</p>
+					<p>
+						Документ — це, як правило, текстовий файл,
+						структурований за допомогою мови розмітки, найчастіше
+						<abbr title="HyperText Markup Language">HTML</abbr>.
+						Проте можна зустріти документи на інших мовах розмітки,
+						таких як SVG або XML.
+						<abbr title="HyperText Markup Language">HTML</abbr
+						>-документ містить контент веб-сторінки та визначає його
+						структуру.
+					</p>
+					<p>
+						Представлення документа користувачеві означає
+						перетворення його у форму, зручну для сприйняття.
+						Браузери (Firefox, Chrome, Safari, Edge) призначені для
+						візуального представлення документів на екрані
+						комп’ютера, мобільного пристрою, проектора або принтера.
+						У веб-контексті цей процес називається рендерингом.
+					</p>
+
+					<p>
+						<em
+							>Примітка: Браузер іноді називають "користувацьким
+							агентом" (user agent), що означає комп'ютерну
+							програму, яка представляє користувача в системі.
+						</em>
+					</p>
+
+					<h3>
+						<abbr title="Cascading Style Sheets">CSS</abbr>
+						дозволяє:
+					</h3>
+					<ul>
+						<li>
+							Стилізувати текст (наприклад, змінювати колір і
+							розмір заголовків і посилань).
+						</li>
+						<li>
+							Створювати макети (наприклад, з одного текстового
+							стовпця зробити багатостовпцевий макет).
+						</li>
+						<li>Додавати спецефекти, такі як анімація.</li>
+					</ul>
+
+					<p>
+						<abbr title="Cascading Style Sheets">CSS</abbr>
+						організований у модулі, що містять відповідний
+						функціонал. Наприклад, модуль Backgrounds and Borders
+						відповідає за фони та рамки елементів.
+					</p>
+				</section>
+				<hr />
+				<section id="osnovy-syntaksysu-css">
+					<h2>
+						Основи синтаксису
+						<abbr title="Cascading Style Sheets">CSS</abbr>
+					</h2>
+					<p>
+						<abbr title="Cascading Style Sheets">CSS</abbr> — це
+						мова на основі правил. Ви визначаєте правила, вказуючи
+						групи стилів, які слід застосовувати до певних елементів
+						<abbr title="HyperText Markup Language">HTML</abbr> на
+						вашій веб-сторінці.
+					</p>
+					<p>
+						Наприклад, якщо ви хочете зробити заголовок
+						<code>&lt;h1&gt;</code> великим і червоним,
+						використовуйте такий код:
+					</p>
+
+					<pre>
+                        <code>  
+h1 {
+  color: red;
+  font-size: 2.5em;
+}
+                        </code>
+                    </pre>
+				</section>
+				<hr />
+				<section id="pryklady-styliv-u-css">
+					<h2>
+						Приклади стилів у
+						<abbr title="Cascading Style Sheets">CSS</abbr>
+					</h2>
+					<table>
+						<thead>
+							<th>
+								<abbr title="Cascading Style Sheets">CSS</abbr
+								>-код
+							</th>
+							<th>Опис</th>
+							<th>Результат</th>
+						</thead>
+						<tbody>
+							<tr>
+								<td><code>h1 { color: red; }</code></td>
+								<td>Робить заголовок червоним</td>
+								<td style="color: red">Червоний заголовок</td>
+							</tr>
+							<tr>
+								<td><code>p { font-size: 18px; }</code></td>
+								<td>Збільшує розмір тексту в &lt;p&gt;.</td>
+								<td style="font-size: 18px">Текст 18px</td>
+							</tr>
+							<tr>
+								<td>
+									<code
+										>div { background: blue; color: white;
+										}</code
+									>
+								</td>
+								<td>Синій фон, білий текст.</td>
+								<td style="background: blue; color: white">
+									Білий текст на синьому фоні
+								</td>
+							</tr>
+						</tbody>
+					</table>
+
+					<p>
+						<em
+							>Примітка: Якщо вам потрібно дізнатися більше про
+							якусь властивість, шукайте її в довідниках MDN,
+							w3schools.
+						</em>
+					</p>
+				</section>
+				<hr />
+				<section id="yak-css-zastosovuyetsya-do-html">
+					<h2>
+						Як
+						<abbr title="Cascading Style Sheets">CSS</abbr>
+						застосовується до
+						<abbr title="HyperText Markup Language">HTML</abbr>?
+					</h2>
+					<p>
+						Коли ви відкриваєте веб-сторінку, браузер спочатку
+						отримує
+						<abbr title="HyperText Markup Language">HTML</abbr
+						>-документ з контентом сторінки та перетворює його у
+						<abbr title="Document Object Model">DOM</abbr>-дерево.
+					</p>
+					<p>
+						Потім він знаходить усі
+						<abbr title="Cascading Style Sheets">CSS</abbr>-правила
+						(як вбудовані в
+						<abbr title="HyperText Markup Language">HTML</abbr>, так
+						і у зовнішніх .css файлах) і групує їх залежно від
+						елементів, до яких вони застосовуються. Після цього
+						<abbr title="Cascading Style Sheets">CSS</abbr>-правила
+						накладаються на
+						<abbr title="Document Object Model">DOM</abbr>-дерево,
+						створюючи рендер-дерево, яке потім відображається у
+						вікні браузера.
+					</p>
+
+					<h3>
+						Приклад
+						<abbr title="HyperText Markup Language">HTML</abbr
+						>-коду:
+					</h3>
+					<pre>
+    <code>
+&lt;h1&gt;<abbr title="Cascading Style Sheets">CSS</abbr> — це круто&lt;/h1&gt;
+
+&lt;p&gt;Ви можете стилізувати текст.&lt;/p&gt;
+
+&lt;p&gt;А також створювати макети та спецефекти.&lt;/p&gt;
+    </code>
+</pre>
+
+					<h3>
+						<abbr title="Cascading Style Sheets">CSS</abbr>-код:
+					</h3>
+					<pre>
+                        <code>
+h1 {
+  color: red;
+  font-size: 2.5em;
+}
+
+p {
+  color: aqua;
+  padding: 5px;
+  background: midnightblue;
+}
+                        </code>
+                    </pre>
+
+					<p>
+						Коли
+						<abbr title="Cascading Style Sheets">CSS</abbr>
+						застосовано до
+						<abbr title="HyperText Markup Language">HTML</abbr>,
+						відтворений результат буде таким:
+					</p>
+					<iframe
+						src="https://stackblitz.com/edit/web-platform-d6bd1y57?embed=1&file=styles.css"
+						frameborder="0"
+						width="500"
+						height="300"
+					></iframe>
+
+					<p>
+						Спробуйте додати ще один <code>&lt;p&gt;</code> після
+						наявних —
+						<abbr title="Cascading Style Sheets">CSS</abbr>-правило
+						автоматично застосується і до нього. <br />Або додайте
+						<code>&lt;h2&gt;</code> і створіть для нього власний
+						стиль у <abbr title="Cascading Style Sheets">CSS</abbr>!
+					</p>
+				</section>
+				<hr />
+				<section id="pidsumok">
+					<h2>Підсумок</h2>
+
+					<p>
+						Тепер у вас є уявлення про те, що таке
+						<abbr title="Cascading Style Sheets">CSS</abbr> і як він
+						працює.
+					</p>
+					<p>
+						Далі ми розглянемо, як писати
+						<abbr title="Cascading Style Sheets">CSS</abbr>-код на
+						практиці та детальніше розберемо його синтаксис.
+					</p>
+				</section>
+			</article>
+		</main>
+	</body>
+</html>
