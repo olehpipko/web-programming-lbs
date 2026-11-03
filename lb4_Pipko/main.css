@@ -1,0 +1,85 @@
+/** @format */
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+}
+
+.site-main__content {
+	margin: 0 auto;
+	padding: 0 1.875rem;
+	max-width: 63.75rem;
+}
+
+.content__title {
+	color: orange;
+	text-align: right;
+}
+
+.content__subtitle--orange {
+	color: orange;
+}
+
+.content__subtitle--blue {
+	color: blue;
+}
+
+.content__paragraph {
+	&::first-letter {
+		font-size: 2em;
+		color: red;
+	}
+}
+
+.content__mark {
+	padding: 0 0.5em;
+
+	font-style: italic;
+
+	color: white;
+
+	background-color: green;
+}
+
+.sublist__item--complited {
+	color: green;
+}
+
+.sublist__item--uncomplited {
+	color: red;
+}
+
+.sublist__item--disabled {
+	color: grey;
+}
+
+.table {
+	width: 30rem;
+	max-width: 100%;
+	min-width: fit-content;
+
+	border: 0.0625rem solid black;
+}
+
+.table__heading,
+.table__cell {
+	padding: 0.25rem 0.5rem;
+	border: 0.0625rem solid black;
+}
+
+.table__cell--name {
+	color: orange;
+}
+
+.table__cell--visiting {
+	text-align: center;
+
+	color: white;
+
+	background-color: green;
+}
