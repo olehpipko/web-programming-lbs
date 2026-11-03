@@ -1,0 +1,261 @@
+<!-- @format -->
+
+<!doctype html>
+<html lang="uk">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>Завдання 3 - Лабораторна робота №3</title>
+		<style>
+			fieldset {
+				margin-bottom: 1rem;
+			}
+
+			div {
+				margin-bottom: 0.75rem;
+			}
+
+			strong[data-required='true'] {
+				&::after {
+					content: '*';
+					color: #ff0000;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<form action="">
+			<!-- Start Персональна інформація -->
+			<fieldset>
+				<legend>Персональна інформація</legend>
+
+				<!-- Start Імʼя -->
+				<div>
+					<label for="form-field-fullname">
+						<strong data-required="true"> Імʼя </strong>
+					</label>
+					<label>
+						<br />
+						<input
+							type="text"
+							id="form-field-fullname"
+							name="fullname"
+							placeholder="Ваше імʼя"
+						/>
+						<span></span>
+					</label>
+				</div>
+				<!-- End Імʼя -->
+
+				<!-- Start Email -->
+				<div>
+					<label for="form-field-email">
+						<strong data-required="true"> Email </strong>
+					</label>
+					<label>
+						<br />
+						<input
+							type="email"
+							id="form-field-email"
+							name="email"
+							placeholder="Ваш email"
+						/>
+						<span></span>
+					</label>
+				</div>
+				<!-- End Email -->
+			</fieldset>
+			<!-- End Персональна інформація -->
+
+			<!-- Start Додаткова інформація -->
+			<fieldset>
+				<legend>Додаткова інформація</legend>
+
+				<!-- Start Стать -->
+				<div>
+					<label for="form-field-gender-male">
+						<strong data-required="true"> Стать </strong>
+					</label>
+					<label>
+						<br />
+						<input
+							type="radio"
+							id="form-field-gender-male"
+							name="gender"
+							value="male"
+						/>
+						<span>Чоловік</span>
+					</label>
+					<label>
+						<br />
+						<input
+							type="radio"
+							id="form-field-gender-female"
+							name="gender"
+							value="female"
+						/>
+						<span>Жінка</span>
+					</label>
+				</div>
+				<!-- End Стать -->
+
+				<!-- Start Поточний статус -->
+				<div>
+					<label for="form-field-current-status-student">
+						<strong data-required="false"> Поточний статус </strong>
+					</label>
+					<label>
+						<br />
+						<input
+							type="checkbox"
+							id="form-field-current-status-student"
+							name="current-status"
+							value="student"
+						/>
+						<span>Студент</span>
+					</label>
+					<label>
+						<br />
+						<input
+							type="checkbox"
+							id="form-field-current-status-employee"
+							name="current-status"
+							value="employee"
+						/>
+						<span>Працівник</span>
+					</label>
+					<label>
+						<br />
+						<input
+							type="checkbox"
+							id="form-field-current-status-unemployed"
+							name="current-status"
+							value="unemployed"
+						/>
+						<span>Безробітній</span>
+					</label>
+				</div>
+				<!-- End Поточний статус -->
+
+				<!-- Start Дата народження -->
+				<div>
+					<label for="form-field-birdthday">
+						<strong data-required="true"> Дата народження </strong>
+					</label>
+					<label>
+						<br />
+						<input
+							type="date"
+							id="form-field-birdthday"
+							name="birdthday"
+							value=""
+						/>
+						<span></span>
+					</label>
+				</div>
+				<!-- End Дата народження -->
+
+				<!-- Start Навички та технології -->
+				<div>
+					<label for="form-field-skills">
+						<strong data-required="true">
+							Навички та технології
+						</strong>
+					</label>
+					<label>
+						<br />
+						<select
+							id="form-field-skills"
+							name="skills"
+							multiple
+						>
+							<optgroup label="Tech skills">
+								<option value="html">HTML</option>
+								<option value="css">CSS</option>
+								<option value="javascript">JavaScript</option>
+								<option value="asp-net">ASP.NET</option>
+							</optgroup>
+							<optgroup label="Soft skills">
+								<option value="time-management">
+									Тайм-менеджмент
+								</option>
+								<option value="team-working">
+									Командна робота
+								</option>
+								<option value="leadership">Лідерство</option>
+							</optgroup>
+						</select>
+						<span></span>
+					</label>
+				</div>
+				<!-- End Навички та технології -->
+
+				<!-- Start Досвід (в роках) -->
+				<div>
+					<label for="form-field-experience">
+						<strong data-required="false">
+							Досвід (в роках)
+						</strong>
+					</label>
+					<label>
+						<br />
+						<input
+							type="number"
+							id="form-field-experience"
+							name="experience"
+							min="0"
+							max="25"
+							step=".5"
+						/>
+						<span> років </span>
+					</label>
+				</div>
+				<!-- End Досвід (в роках) -->
+
+				<!-- Start Фотографія -->
+				<div>
+					<label for="form-field-photo">
+						<strong data-required="false"> Фотографія </strong>
+					</label>
+					<label>
+						<br />
+						<input
+							type="file"
+							id="form-field-photo"
+							name="photo"
+						/>
+						<span></span>
+					</label>
+				</div>
+				<!-- End Фотографія -->
+
+				<!-- Start Коментар -->
+				<div>
+					<label for="form-field-comment">
+						<strong data-required="false"> Коментар </strong>
+					</label>
+					<label>
+						<br />
+						<textarea
+							id="form-field-comment"
+							name="comment"
+							rows="10"
+							cols="28"
+						></textarea>
+						<span></span>
+					</label>
+				</div>
+				<!-- End Коментар -->
+			</fieldset>
+			<!-- End Додаткова інформація -->
+
+			<!-- Start Маніпулятори -->
+			<input type="submit" />
+			<input type="reset" />
+			<!-- End Маніпулятори -->
+		</form>
+	</body>
+</html>
