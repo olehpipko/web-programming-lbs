@@ -1,0 +1,76 @@
+/** @format */
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+}
+
+form {
+	margin: auto;
+	padding: 2rem 1.875rem;
+	width: 63rem;
+	max-width: 100%;
+
+	div {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.25rem 0.75rem;
+	}
+}
+
+input {
+	display: none;
+
+	&#red:checked ~ label[for='red'],
+	&#green:checked ~ label[for='green'],
+	&#blue:checked ~ label[for='blue'] {
+		opacity: 0.5;
+	}
+
+	&#red:checked ~ span.red,
+	&#green:checked ~ span.green,
+	&#blue:checked ~ span.blue {
+		display: none;
+	}
+}
+
+label {
+	padding: 0.25em 0.75em;
+
+	text-decoration: underline;
+
+	&[for='red'] {
+		color: red;
+	}
+
+	&[for='green'] {
+		color: green;
+	}
+
+	&[for='blue'] {
+		color: blue;
+	}
+}
+
+span {
+	padding: 0.25em 0.75em;
+	border-radius: 0.5em;
+	color: white;
+
+	&.red {
+		background-color: red;
+	}
+
+	&.green {
+		background-color: green;
+	}
+
+	&.blue {
+		background-color: blue;
+	}
+}

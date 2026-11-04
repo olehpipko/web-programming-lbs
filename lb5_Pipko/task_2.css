@@ -1,0 +1,26 @@
+/** @format */
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+}
+
+a[href^='https://'],
+a[href^='http://'] {
+	color: #4caf50;
+}
+
+a[href*='google.'] {
+	color: #666;
+}
+
+a[target='_blank'] {
+	&::after {
+		content: ' ⇱';
+	}
+}

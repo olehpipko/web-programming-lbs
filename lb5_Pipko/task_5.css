@@ -1,0 +1,187 @@
+/**
+ * Світла тема (за замовчуванням)
+ *
+ * @format
+ */
+
+/* #f8f9fa
+ #212529
+ #0d6efd
+ #dee2e6
+ rgba(0, 0, 0, 0.075) */
+
+/* Темна тема */
+/* #212529
+ #f8f9fa
+ #85d3ff
+ #495057
+ rgba(255, 255, 255, 0.075) */
+
+:root {
+	/* Start Light color-theme */
+	--lth-bg-color: #f8f9fa;
+	--lth-text-color: #212529;
+	--lth-main-color: #0d6efd;
+	--lth-grey-color: #dee2e6;
+	--lth-dark-color: rgba(0, 0, 0, 0.075);
+	/* End Light color-theme */
+
+	/* Start Dark color-theme */
+	--drk-bg-color: #212529;
+	--drk-text-color: #f8f9fa;
+	--drk-main-color: #85d3ff;
+	--drk-grey-color: #495057;
+	--drk-dark-color: rgba(255, 255, 255, 0.075);
+	/* End Dark color-theme */
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	padding: 0;
+	margin: 0;
+}
+
+.page-wrapper {
+	font-family: Arial, sans-serif;
+	transition: 0.3s; /*Забезпечує плавніть зміни теми*/
+	height: 100vh; /* Забезпечуємо повну висоту екрана */
+
+	min-height: max-content;
+
+	/* Start Light theme */
+	&:not(:has(#theme-switcher:checked)) {
+		color: var(--lth-text-color);
+		background-color: var(--lth-bg-color);
+
+		.title {
+			border-bottom-color: var(--lth-main-color);
+
+			color: var(--lth-main-color);
+		}
+
+		.table {
+			border-color: var(--lth-grey-color);
+		}
+
+		.table__row {
+			&:hover {
+				background-color: var(--lth-dark-color);
+			}
+		}
+
+		.table__heading {
+			border-color: var(--lth-grey-color);
+			color: var(--lth-bg-color);
+			background-color: var(--lth-main-color);
+		}
+
+		.table__ceil {
+			border-color: var(--lth-grey-color);
+		}
+	}
+	/* End Light theme */
+
+	/* Start Dark theme */
+	&:has(#theme-switcher:checked) {
+		color: var(--drk-text-color);
+		background-color: var(--drk-bg-color);
+
+		.title {
+			border-bottom-color: var(--drk-main-color);
+
+			color: var(--drk-main-color);
+		}
+
+		.table {
+			border-color: var(--drk-grey-color);
+		}
+
+		.table__row {
+			&:hover {
+				background-color: var(--drk-dark-color);
+			}
+		}
+
+		.table__heading {
+			border-color: var(--drk-grey-color);
+			color: var(--drk-text-color);
+			background-color: var(--drk-main-color);
+		}
+
+		.table__ceil {
+			border-color: var(--drk-grey-color);
+		}
+	}
+	/* End Dark theme */
+}
+
+.container {
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 10px;
+}
+
+.theme-label {
+	position: fixed;
+	top: 20px;
+	right: 20px;
+	cursor: pointer;
+	font-size: 24px;
+}
+
+.title {
+	margin-bottom: 1.625rem;
+	padding-bottom: 1.125rem;
+	border-bottom: 0.125rem solid;
+}
+
+.heading {
+	margin: 1.625rem 0;
+}
+
+.list {
+	margin: 1.75rem 0;
+}
+
+.list__item {
+	margin-bottom: 0.4375rem;
+}
+
+.list__item--checkmark {
+	&::marker {
+		content: '✓ ';
+	}
+}
+
+.table {
+	padding: 0;
+	width: 100%;
+
+	border: 0.0625rem solid;
+	border-spacing: 0;
+}
+
+.table__row {
+	transition: 0.1s ease-in-out;
+}
+
+.table__heading {
+	padding: 0.25rem 0.75rem;
+	height: 3rem;
+
+	border: 0.0625rem solid;
+
+	text-align: left;
+}
+
+.table__ceil {
+	padding: 0.5rem 0.75rem;
+	height: 3.25rem;
+
+	border: 0.0625rem solid;
+}
