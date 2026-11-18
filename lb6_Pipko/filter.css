@@ -1,0 +1,172 @@
+/** @format */
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+}
+
+.content {
+	/* День прийому */
+	&:has(input[name='day'][value='monday']:checked) {
+		.table__row[data-days~='monday'] {
+			display: inline-table !important;
+		}
+		.table__row:not([data-days~='monday']) {
+			display: none;
+		}
+	}
+
+	&:has(input[name='day'][value='tuesday']:checked) {
+		.table__row[data-days~='tuesday'] {
+			display: inline-table !important;
+		}
+		.table__row:not([data-days~='tuesday']) {
+			display: none;
+		}
+	}
+
+	&:has(input[name='day'][value='wednesday']:checked) {
+		.table__row[data-days~='wednesday'] {
+			display: inline-table !important;
+		}
+		.table__row:not([data-days~='wednesday']) {
+			display: none;
+		}
+	}
+
+	&:has(input[name='day'][value='thursday']:checked) {
+		.table__row[data-days~='thursday'] {
+			display: inline-table !important;
+		}
+		.table__row:not([data-days~='thursday']) {
+			display: none;
+		}
+	}
+
+	&:has(input[name='day'][value='friday']:checked) {
+		.table__row[data-days~='friday'] {
+			display: inline-table !important;
+		}
+		.table__row:not([data-days~='friday']) {
+			display: none;
+		}
+	}
+
+	/* Рівень (категорія) фахівця */
+	&:has(input[name='category'][value='first-category']:checked) {
+		.table__row:not([data-category='first-category']) {
+			display: none !important;
+		}
+	}
+
+	&:has(input[name='category'][value='second-category']:checked) {
+		.table__row:not([data-category='second-category']) {
+			display: none !important;
+		}
+	}
+
+	&:has(input[name='category'][value='highest-category']:checked) {
+		.table__row:not([data-category='highest-category']) {
+			display: none !important;
+		}
+	}
+
+	/* Половина дня */
+	&:has(input[name='period'][value='first']:checked) {
+		.table__row:not([data-period='first']) {
+			display: none !important;
+		}
+	}
+
+	&:has(input[name='period'][value='second']:checked) {
+		.table__row:not([data-period='second']) {
+			display: none !important;
+		}
+	}
+
+	/* Спеціальність */
+	&:has(select[name='specialty'] option[value='pediatrician']:checked) {
+		.table__row:not([data-specialty='pediatrician']) {
+			display: none !important;
+		}
+	}
+
+	&:has(
+		select[name='specialty'] option[value='pediatric-neurologist']:checked
+	) {
+		.table__row:not([data-specialty='pediatric-neurologist']) {
+			display: none !important;
+		}
+	}
+
+	&:has(select[name='specialty'] option[value='pediatric-surgeon']:checked) {
+		.table__row:not([data-specialty='pediatric-surgeon']) {
+			display: none !important;
+		}
+	}
+
+	&:has(
+		select[name='specialty']
+			option[value='pediatric-ophthalmologist']:checked
+	) {
+		.table__row:not([data-specialty='pediatric-ophthalmologist']) {
+			display: none !important;
+		}
+	}
+
+	&:has(
+		select[name='specialty']
+			option[value='pediatric-otolaryngologist']:checked
+	) {
+		.table__row:not([data-specialty='pediatric-otolaryngologist']) {
+			display: none !important;
+		}
+	}
+
+	&:has(
+		select[name='specialty'] option[value='pediatric-cardiologist']:checked
+	) {
+		.table__row:not([data-specialty='pediatric-cardiologist']) {
+			display: none !important;
+		}
+	}
+
+	&:has(
+		select[name='specialty'] option[value='pediatric-dermatologist']:checked
+	) {
+		.table__row:not([data-specialty='pediatric-dermatologist']) {
+			display: none !important;
+		}
+	}
+
+	&:has(
+		select[name='specialty']
+			option[value='pediatric-endocrinologist']:checked
+	) {
+		.table__row:not([data-specialty='pediatric-endocrinologist']) {
+			display: none !important;
+		}
+	}
+
+	&:has(
+		select[name='specialty'] option[value='pediatric-allergist']:checked
+	) {
+		.table__row:not([data-specialty='pediatric-allergist']) {
+			display: none !important;
+		}
+	}
+
+	&:has(
+		select[name='specialty']
+			option[value='pediatric-gastroenterologist']:checked
+	) {
+		.table__row:not([data-specialty='pediatric-gastroenterologist']) {
+			display: none !important;
+		}
+	}
+}

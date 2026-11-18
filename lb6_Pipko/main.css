@@ -1,0 +1,288 @@
+/**
+ * ================================
+ *    VARIABLES
+ * ================================
+ *
+ * @format
+ */
+
+:root {
+	color-scheme: light;
+
+	--bg: #fff;
+	--surface: #f7f7f5;
+	--text: #37352f;
+	--muted: #787774;
+	--border: #e9e9e7;
+	--accent: #2383e2;
+}
+
+body:has(#theme-switch-input:checked) {
+	color-scheme: dark;
+
+	--bg: #191919;
+	--surface: #252525;
+	--text: #e3e3e3;
+	--muted: #999;
+	--border: #373737;
+	--accent: #529cca;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	padding: 48px 24px;
+
+	font-family: sans-serif;
+	font-size: 14px;
+
+	background: var(--bg);
+	color: var(--text);
+}
+
+.content {
+	.content__container {
+		margin: 0 auto;
+		max-width: 1200px;
+	}
+
+	.content__title {
+		margin: 0 0 32px;
+
+		font-size: 32px;
+		line-height: 1.3;
+	}
+
+	/* Перемикач теми */
+
+	.theme-switch {
+		position: absolute;
+		top: 20px;
+		right: 24px;
+
+		.theme-switch__input {
+			position: absolute;
+			width: 1px;
+			height: 1px;
+			opacity: 0;
+			overflow: hidden;
+
+			&:checked + .theme-switch__label {
+				.theme-switch__icon {
+					opacity: 0.45;
+
+					&:last-child {
+						opacity: 1;
+					}
+				}
+			}
+
+			&:focus-visible + .theme-switch__label {
+				outline: 2px solid var(--accent);
+				outline-offset: 3px;
+			}
+		}
+
+		.theme-switch__label {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+			padding: 7px 10px;
+			border: 1px solid var(--border);
+			border-radius: 6px;
+			background: var(--surface);
+			cursor: pointer;
+		}
+
+		.theme-switch__icon {
+			opacity: 0.45;
+
+			&:first-child {
+				opacity: 1;
+			}
+		}
+	}
+
+	/* Фільтри */
+
+	.filter {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 12px;
+		margin-bottom: 28px;
+
+		.filter__group {
+			min-width: 0;
+			margin: 0;
+			padding: 14px;
+			border: 1px solid var(--border);
+			border-radius: 6px;
+		}
+
+		.filter__legend {
+			padding: 0 5px;
+			font-weight: 600;
+		}
+
+		.filter__label {
+			display: inline-flex;
+			align-items: center;
+			gap: 6px;
+			margin: 5px 12px 5px 0;
+			color: var(--muted);
+			cursor: pointer;
+
+			&:has(input:checked) {
+				color: var(--text);
+			}
+		}
+
+		.filter__specialty {
+			width: 100%;
+			padding: 9px 10px;
+			border: 1px solid var(--border);
+			border-radius: 5px;
+			background: var(--bg);
+			color: var(--text);
+		}
+	}
+
+	/* Таблиця */
+
+	.table {
+		display: block;
+		width: 100%;
+		overflow-x: auto;
+		border: 1px solid var(--border);
+		border-radius: 6px;
+		border-spacing: 0;
+
+		.table__headrow,
+		.table__row {
+			display: table;
+			width: 100%;
+			min-width: 950px;
+			table-layout: fixed;
+		}
+
+		.table__headrow {
+			background: var(--surface);
+		}
+
+		.table__heading,
+		.table__cell {
+			padding: 12px;
+			border-bottom: 1px solid var(--border);
+			text-align: left;
+		}
+
+		.table__heading {
+			color: var(--muted);
+			font-size: 12px;
+			font-weight: 600;
+		}
+
+		.table__cell {
+			font-size: 13px;
+		}
+
+		.table__row:hover {
+			background: var(--surface);
+		}
+
+		.table__row:last-child .table__cell {
+			border-bottom: 0;
+		}
+
+		.table__heading--order,
+		.table__cell--order {
+			width: 45px;
+		}
+
+		.table__heading--specialty,
+		.table__cell--specialty {
+			width: 145px;
+		}
+
+		.table__heading--fullname,
+		.table__cell--fullname {
+			width: 190px;
+		}
+
+		.table__heading--category,
+		.table__cell--category {
+			width: 145px;
+		}
+
+		.table__heading--cabinet,
+		.table__cell--cabinet {
+			width: 75px;
+		}
+
+		.table__heading--days,
+		.table__cell--days {
+			width: 125px;
+		}
+
+		.table__heading--worktime,
+		.table__cell--worktime {
+			width: 120px;
+		}
+
+		.table__heading--period,
+		.table__cell--period {
+			width: 100px;
+		}
+
+		.table__cell--order,
+		.table__cell--days,
+		.table__cell--category,
+		.table__cell--period {
+			color: var(--muted);
+		}
+	}
+
+	/* Контакт */
+
+	.contact {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 12px;
+		margin-top: 28px;
+		padding: 16px;
+		border: 1px solid var(--border);
+		border-radius: 6px;
+		background: var(--surface);
+
+		.contact__label {
+			flex: 1 1 200px;
+		}
+
+		.contact__input {
+			width: 100%;
+			padding: 9px 10px;
+			border: 1px solid var(--border);
+			border-radius: 5px;
+			background: var(--bg);
+			color: var(--text);
+		}
+
+		.contact__btn {
+			padding: 9px 20px;
+			border: 0;
+			border-radius: 5px;
+			background: var(--text);
+			color: var(--bg);
+			cursor: pointer;
+
+			&:hover {
+				opacity: 0.8;
+			}
+		}
+	}
+}

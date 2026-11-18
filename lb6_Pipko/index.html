@@ -1,0 +1,733 @@
+<!-- @format -->
+
+<!doctype html>
+<html lang="uk">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>Лабораторна робота №6</title>
+
+		<link
+			rel="stylesheet"
+			href="main.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="filter.css"
+		/>
+	</head>
+	<body>
+		<main class="content">
+			<section class="content__container">
+				<div class="theme-switch">
+					<input
+						type="checkbox"
+						id="theme-switch-input"
+						class="theme-switch__input"
+					/>
+
+					<label
+						for="theme-switch-input"
+						class="theme-switch__label"
+					>
+						<span class="theme-switch__icon">☀️</span>
+						<span class="theme-switch__icon">🌙</span>
+					</label>
+				</div>
+				<h1 class="content__title">Дитяча поліклініка</h1>
+				<form
+					class="content__filter filter"
+					action="index.html"
+					method="get"
+				>
+					<fieldset class="filter__group">
+						<legend class="filter__legend">Спеціальність</legend>
+						<select
+							class="filter__specialty"
+							name="specialty"
+							id="specialty"
+						>
+							<option>Обрати</option>
+							<option value="pediatrician">Педіатр</option>
+							<option value="pediatric-neurologist">
+								Дитячий невролог
+							</option>
+							<option value="pediatric-surgeon">
+								Дитячий хірург
+							</option>
+							<option value="pediatric-ophthalmologist">
+								Дитячий офтальмолог
+							</option>
+							<option value="pediatric-otolaryngologist">
+								Дитячий отоларинголог
+							</option>
+							<option value="pediatric-cardiologist">
+								Дитячий кардіолог
+							</option>
+							<option value="pediatric-dermatologist">
+								Дитячий дерматолог
+							</option>
+							<option value="pediatric-endocrinologist">
+								Дитячий ендокринолог
+							</option>
+							<option value="pediatric-allergist">
+								Дитячий алерголог
+							</option>
+							<option value="pediatric-gastroenterologist">
+								Дитячий гастроентеролог
+							</option>
+						</select>
+					</fieldset>
+
+					<fieldset class="filter__group">
+						<legend class="filter__legend">
+							Рівень (категорія) фахівця
+						</legend>
+						<label class="filter__label">
+							<input
+								type="radio"
+								name="category"
+								value="all"
+								checked
+							/>
+							<span>Всі</span>
+						</label>
+						<label class="filter__label">
+							<input
+								type="radio"
+								name="category"
+								value="first-category"
+							/>
+							<span>Перша категорія</span>
+						</label>
+						<label class="filter__label">
+							<input
+								type="radio"
+								name="category"
+								value="second-category"
+							/>
+							<span>Друга категорія</span>
+						</label>
+						<label class="filter__label">
+							<input
+								type="radio"
+								name="category"
+								value="highest-category"
+							/>
+							<span>Вища категорія</span>
+						</label>
+					</fieldset>
+
+					<fieldset class="filter__group">
+						<legend class="filter__legend">День прийому</legend>
+
+						<label class="filter__label">
+							<input
+								type="checkbox"
+								name="day"
+								value="monday"
+							/>
+							<span>Понеділок</span>
+						</label>
+
+						<label class="filter__label">
+							<input
+								type="checkbox"
+								name="day"
+								value="tuesday"
+							/>
+							<span>Вівторок</span>
+						</label>
+
+						<label class="filter__label">
+							<input
+								type="checkbox"
+								name="day"
+								value="wednesday"
+							/>
+							<span>Середа</span>
+						</label>
+
+						<label class="filter__label">
+							<input
+								type="checkbox"
+								name="day"
+								value="thursday"
+							/>
+							<span>Четвер</span>
+						</label>
+
+						<label class="filter__label">
+							<input
+								type="checkbox"
+								name="day"
+								value="friday"
+							/>
+							<span>П'ятниця</span>
+						</label>
+					</fieldset>
+
+					<fieldset class="filter__group">
+						<legend class="filter__legend">Половина дня</legend>
+
+						<label class="filter__label">
+							<input
+								type="radio"
+								name="period"
+								value="all"
+								checked
+							/>
+							<span>Всі</span>
+						</label>
+
+						<label class="filter__label">
+							<input
+								type="radio"
+								name="period"
+								value="first"
+							/>
+							<span>Перша половина дня</span>
+						</label>
+
+						<label class="filter__label">
+							<input
+								type="radio"
+								name="period"
+								value="second"
+							/>
+							<span>Друга половина дня</span>
+						</label>
+					</fieldset>
+				</form>
+				<table class="content__table table">
+					<thead class="table__head">
+						<tr class="table__headrow">
+							<th class="table__heading table__heading--order">
+								№
+							</th>
+							<th
+								class="table__heading table__heading--specialty"
+							>
+								Спеціальність
+							</th>
+							<th class="table__heading table__heading--fullname">
+								ПІБ
+							</th>
+							<th class="table__heading table__heading--category">
+								Рівень (категорія) фахівця
+							</th>
+							<th class="table__heading table__heading--cabinet">
+								Кабінет
+							</th>
+							<th class="table__heading table__heading--days">
+								Дні прийому
+							</th>
+							<th class="table__heading table__heading--worktime">
+								Години прийому
+							</th>
+							<th class="table__heading table__heading--period">
+								Половина дня
+							</th>
+						</tr>
+					</thead>
+					<tbody class="table__body">
+						<tr
+							class="table__row"
+							data-specialty="pediatrician"
+							data-category="highest-category"
+							data-days="monday wednesday friday"
+							data-period="first"
+						>
+							<td class="table__cell table__cell--order">1</td>
+							<td class="table__cell table__cell--specialty">
+								Педіатр
+							</td>
+							<td class="table__cell table__cell--fullname">
+								Петренко Олена Іванівна
+							</td>
+							<td class="table__cell table__cell--category">
+								Вища категорія
+							</td>
+							<td class="table__cell table__cell--cabinet">
+								101
+							</td>
+							<td class="table__cell table__cell--days">
+								Пн, Ср, Пт
+							</td>
+							<td class="table__cell table__cell--worktime">
+								08:00–14:00
+							</td>
+							<td class="table__cell table__cell--period">
+								Перша
+							</td>
+						</tr>
+
+						<tr
+							class="table__row"
+							data-specialty="pediatrician"
+							data-category="first-category"
+							data-days="tuesday thursday"
+							data-period="first"
+						>
+							<td class="table__cell table__cell--order">2</td>
+							<td class="table__cell table__cell--specialty">
+								Педіатр
+							</td>
+							<td class="table__cell table__cell--fullname">
+								Коваленко Андрій Петрович
+							</td>
+							<td class="table__cell table__cell--category">
+								Перша категорія
+							</td>
+							<td class="table__cell table__cell--cabinet">
+								102
+							</td>
+							<td class="table__cell table__cell--days">
+								Вт, Чт
+							</td>
+							<td class="table__cell table__cell--worktime">
+								09:00–15:00
+							</td>
+							<td class="table__cell table__cell--period">
+								Перша
+							</td>
+						</tr>
+
+						<tr
+							class="table__row"
+							data-specialty="pediatrician"
+							data-category="second-category"
+							data-days="monday wednesday friday"
+							data-period="second"
+						>
+							<td class="table__cell table__cell--order">3</td>
+							<td class="table__cell table__cell--specialty">
+								Педіатр
+							</td>
+							<td class="table__cell table__cell--fullname">
+								Мельник Ірина Василівна
+							</td>
+							<td class="table__cell table__cell--category">
+								Друга категорія
+							</td>
+							<td class="table__cell table__cell--cabinet">
+								103
+							</td>
+							<td class="table__cell table__cell--days">
+								Пн, Ср, Пт
+							</td>
+							<td class="table__cell table__cell--worktime">
+								12:00–18:00
+							</td>
+							<td class="table__cell table__cell--period">
+								Друга
+							</td>
+						</tr>
+
+						<tr
+							class="table__row"
+							data-specialty="pediatric-neurologist"
+							data-category="highest-category"
+							data-days="monday tuesday thursday"
+							data-period="first"
+						>
+							<td class="table__cell table__cell--order">4</td>
+							<td class="table__cell table__cell--specialty">
+								Дитячий невролог
+							</td>
+							<td class="table__cell table__cell--fullname">
+								Бондаренко Сергій Миколайович
+							</td>
+							<td class="table__cell table__cell--category">
+								Вища категорія
+							</td>
+							<td class="table__cell table__cell--cabinet">
+								205
+							</td>
+							<td class="table__cell table__cell--days">
+								Пн, Вт, Чт
+							</td>
+							<td class="table__cell table__cell--worktime">
+								08:00–14:00
+							</td>
+							<td class="table__cell table__cell--period">
+								Перша
+							</td>
+						</tr>
+
+						<tr
+							class="table__row"
+							data-specialty="pediatric-neurologist"
+							data-category="first-category"
+							data-days="wednesday friday"
+							data-period="second"
+						>
+							<td class="table__cell table__cell--order">5</td>
+							<td class="table__cell table__cell--specialty">
+								Дитячий невролог
+							</td>
+							<td class="table__cell table__cell--fullname">
+								Шевченко Наталія Олегівна
+							</td>
+							<td class="table__cell table__cell--category">
+								Перша категорія
+							</td>
+							<td class="table__cell table__cell--cabinet">
+								206
+							</td>
+							<td class="table__cell table__cell--days">
+								Ср, Пт
+							</td>
+							<td class="table__cell table__cell--worktime">
+								10:00–16:00
+							</td>
+							<td class="table__cell table__cell--period">
+								Друга
+							</td>
+						</tr>
+
+						<tr
+							class="table__row"
+							data-specialty="pediatric-surgeon"
+							data-category="first-category"
+							data-days="monday thursday friday"
+							data-period="first"
+						>
+							<td class="table__cell table__cell--order">6</td>
+							<td class="table__cell table__cell--specialty">
+								Дитячий хірург
+							</td>
+							<td class="table__cell table__cell--fullname">
+								Ткаченко Дмитро Вікторович
+							</td>
+							<td class="table__cell table__cell--category">
+								Перша категорія
+							</td>
+							<td class="table__cell table__cell--cabinet">
+								301
+							</td>
+							<td class="table__cell table__cell--days">
+								Пн, Чт, Пт
+							</td>
+							<td class="table__cell table__cell--worktime">
+								09:00–15:00
+							</td>
+							<td class="table__cell table__cell--period">
+								Перша
+							</td>
+						</tr>
+
+						<tr
+							class="table__row"
+							data-specialty="pediatric-ophthalmologist"
+							data-category="highest-category"
+							data-days="tuesday wednesday friday"
+							data-period="first"
+						>
+							<td class="table__cell table__cell--order">7</td>
+							<td class="table__cell table__cell--specialty">
+								Дитячий офтальмолог
+							</td>
+							<td class="table__cell table__cell--fullname">
+								Савченко Марина Юріївна
+							</td>
+							<td class="table__cell table__cell--category">
+								Вища категорія
+							</td>
+							<td class="table__cell table__cell--cabinet">
+								207
+							</td>
+							<td class="table__cell table__cell--days">
+								Вт, Ср, Пт
+							</td>
+							<td class="table__cell table__cell--worktime">
+								08:00–14:00
+							</td>
+							<td class="table__cell table__cell--period">
+								Перша
+							</td>
+						</tr>
+
+						<tr
+							class="table__row"
+							data-specialty="pediatric-otolaryngologist"
+							data-category="first-category"
+							data-days="monday wednesday thursday"
+							data-period="second"
+						>
+							<td class="table__cell table__cell--order">8</td>
+							<td class="table__cell table__cell--specialty">
+								Дитячий отоларинголог
+							</td>
+							<td class="table__cell table__cell--fullname">
+								Романенко Оксана Петрівна
+							</td>
+							<td class="table__cell table__cell--category">
+								Перша категорія
+							</td>
+							<td class="table__cell table__cell--cabinet">
+								208
+							</td>
+							<td class="table__cell table__cell--days">
+								Пн, Ср, Чт
+							</td>
+							<td class="table__cell table__cell--worktime">
+								10:00–16:00
+							</td>
+							<td class="table__cell table__cell--period">
+								Друга
+							</td>
+						</tr>
+
+						<tr
+							class="table__row"
+							data-specialty="pediatric-cardiologist"
+							data-category="second-category"
+							data-days="tuesday thursday friday"
+							data-period="first"
+						>
+							<td class="table__cell table__cell--order">9</td>
+							<td class="table__cell table__cell--specialty">
+								Дитячий кардіолог
+							</td>
+							<td class="table__cell table__cell--fullname">
+								Кравченко Максим Ігорович
+							</td>
+							<td class="table__cell table__cell--category">
+								Друга категорія
+							</td>
+							<td class="table__cell table__cell--cabinet">
+								210
+							</td>
+							<td class="table__cell table__cell--days">
+								Вт, Чт, Пт
+							</td>
+							<td class="table__cell table__cell--worktime">
+								09:00–15:00
+							</td>
+							<td class="table__cell table__cell--period">
+								Перша
+							</td>
+						</tr>
+
+						<tr
+							class="table__row"
+							data-specialty="pediatrician"
+							data-category="highest-category"
+							data-days="monday tuesday wednesday thursday"
+							data-period="second"
+						>
+							<td class="table__cell table__cell--order">10</td>
+							<td class="table__cell table__cell--specialty">
+								Педіатр
+							</td>
+							<td class="table__cell table__cell--fullname">
+								Лисенко Тетяна Андріївна
+							</td>
+							<td class="table__cell table__cell--category">
+								Вища категорія
+							</td>
+							<td class="table__cell table__cell--cabinet">
+								104
+							</td>
+							<td class="table__cell table__cell--days">
+								Пн, Вт, Ср, Чт
+							</td>
+							<td class="table__cell table__cell--worktime">
+								14:00–19:00
+							</td>
+							<td class="table__cell table__cell--period">
+								Друга
+							</td>
+						</tr>
+
+						<tr
+							class="table__row"
+							data-specialty="pediatric-dermatologist"
+							data-category="first-category"
+							data-days="monday wednesday friday"
+							data-period="first"
+						>
+							<td class="table__cell table__cell--order">11</td>
+							<td class="table__cell table__cell--specialty">
+								Дитячий дерматолог
+							</td>
+							<td class="table__cell table__cell--fullname">
+								Мороз Олена Сергіївна
+							</td>
+							<td class="table__cell table__cell--category">
+								Перша категорія
+							</td>
+							<td class="table__cell table__cell--cabinet">
+								211
+							</td>
+							<td class="table__cell table__cell--days">
+								Пн, Ср, Пт
+							</td>
+							<td class="table__cell table__cell--worktime">
+								08:00–14:00
+							</td>
+							<td class="table__cell table__cell--period">
+								Перша
+							</td>
+						</tr>
+
+						<tr
+							class="table__row"
+							data-specialty="pediatric-endocrinologist"
+							data-category="highest-category"
+							data-days="tuesday thursday friday"
+							data-period="second"
+						>
+							<td class="table__cell table__cell--order">12</td>
+							<td class="table__cell table__cell--specialty">
+								Дитячий ендокринолог
+							</td>
+							<td class="table__cell table__cell--fullname">
+								Павленко Віталій Олександрович
+							</td>
+							<td class="table__cell table__cell--category">
+								Вища категорія
+							</td>
+							<td class="table__cell table__cell--cabinet">
+								212
+							</td>
+							<td class="table__cell table__cell--days">
+								Вт, Чт, Пт
+							</td>
+							<td class="table__cell table__cell--worktime">
+								11:00–17:00
+							</td>
+							<td class="table__cell table__cell--period">
+								Друга
+							</td>
+						</tr>
+
+						<tr
+							class="table__row"
+							data-specialty="pediatric-allergist"
+							data-category="second-category"
+							data-days="monday tuesday friday"
+							data-period="first"
+						>
+							<td class="table__cell table__cell--order">13</td>
+							<td class="table__cell table__cell--specialty">
+								Дитячий алерголог
+							</td>
+							<td class="table__cell table__cell--fullname">
+								Кузьменко Анна Михайлівна
+							</td>
+							<td class="table__cell table__cell--category">
+								Друга категорія
+							</td>
+							<td class="table__cell table__cell--cabinet">
+								213
+							</td>
+							<td class="table__cell table__cell--days">
+								Пн, Вт, Пт
+							</td>
+							<td class="table__cell table__cell--worktime">
+								09:00–15:00
+							</td>
+							<td class="table__cell table__cell--period">
+								Перша
+							</td>
+						</tr>
+
+						<tr
+							class="table__row"
+							data-specialty="pediatric-gastroenterologist"
+							data-category="first-category"
+							data-days="wednesday thursday friday"
+							data-period="second"
+						>
+							<td class="table__cell table__cell--order">14</td>
+							<td class="table__cell table__cell--specialty">
+								Дитячий гастроентеролог
+							</td>
+							<td class="table__cell table__cell--fullname">
+								Гриценко Роман Васильович
+							</td>
+							<td class="table__cell table__cell--category">
+								Перша категорія
+							</td>
+							<td class="table__cell table__cell--cabinet">
+								214
+							</td>
+							<td class="table__cell table__cell--days">
+								Ср, Чт, Пт
+							</td>
+							<td class="table__cell table__cell--worktime">
+								10:00–16:00
+							</td>
+							<td class="table__cell table__cell--period">
+								Друга
+							</td>
+						</tr>
+
+						<tr
+							class="table__row"
+							data-specialty="pediatrician"
+							data-category="second-category"
+							data-days="monday tuesday thursday friday"
+							data-period="first"
+						>
+							<td class="table__cell table__cell--order">15</td>
+							<td class="table__cell table__cell--specialty">
+								Педіатр
+							</td>
+							<td class="table__cell table__cell--fullname">
+								Поліщук Світлана Ігорівна
+							</td>
+							<td class="table__cell table__cell--category">
+								Друга категорія
+							</td>
+							<td class="table__cell table__cell--cabinet">
+								105
+							</td>
+							<td class="table__cell table__cell--days">
+								Пн, Вт, Чт, Пт
+							</td>
+							<td class="table__cell table__cell--worktime">
+								08:00–14:00
+							</td>
+							<td class="table__cell table__cell--period">
+								Перша
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<form
+					class="content__contact contact"
+					action="index.html"
+					method="post"
+				>
+					<label class="contact__label">
+						<input
+							class="contact__input"
+							type="tel"
+							pattern="+38 (0[0-9]{2}) [0-9]{3}-[0-9]{2}-[0-9]{2}"
+							placeholder="+38 (044) 272-19-02"
+							required
+						/>
+					</label>
+					<label class="contact__label">
+						<input
+							class="contact__input"
+							type="email"
+							placeholder="kubg@kubg.edu.ua"
+							required
+						/>
+					</label>
+					<input
+						class="contact__btn"
+						type="submit"
+					/>
+				</form>
+			</section>
+		</main>
+	</body>
+</html>
